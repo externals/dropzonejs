@@ -123,7 +123,13 @@
          dropzone.on("dragEnter", function() { });
          */
 
-        Dropzone.prototype.events = ["drop", "dragstart", "dragend", "dragenter", "dragover", "dragleave", "addedfile", "addedfiles", "removedfile", "thumbnail", "error", "errormultiple", "processing", "processingmultiple", "uploadprogress", "totaluploadprogress", "sending", "sendingmultiple", "success", "successmultiple", "canceled", "canceledmultiple", "complete", "completemultiple", "reset", "maxfilesexceeded", "maxfilesreached", "queuecomplete"];
+        Dropzone.prototype.events = [
+            "drop", "dragstart", "dragend", "dragenter", "dragover", "dragleave", "addedfile", "addedfiles", 
+            "removedfile", "thumbnail", "error", "errormultiple", "processing", "processingmultiple", "uploadprogress",
+            "totaluploadprogress", "sending", "sendingmultiple", "success", "successmultiple", "canceled", 
+            "canceledmultiple", "complete", "completemultiple", "reset", "maxfilesexceeded", "maxfilesreached", 
+            "queuecomplete"
+        ];
 
         Dropzone.prototype.defaultOptions = {
             url: null,
@@ -280,7 +286,10 @@
                         node.innerHTML = this.filesize(file.size);
                     }
                     if (this.options.addRemoveLinks) {
-                        file._removeLink = Dropzone.createElement("<a class=\"dz-remove\" href=\"javascript:undefined;\" data-dz-remove>" + this.options.dictRemoveFile + "</a>");
+                        file._removeLink = Dropzone.createElement(
+                                "<a class=\"dz-remove\" href=\"javascript:undefined;\" data-dz-remove>" 
+                                + this.options.dictRemoveFile + "</a>"
+                        );
                         file.previewElement.appendChild(file._removeLink);
                     }
                     removeFileEvent = (function (_this) {
@@ -549,7 +558,12 @@
                 this.element.setAttribute("enctype", "multipart/form-data");
             }
             if (this.element.classList.contains("dropzone") && !this.element.querySelector(".dz-message")) {
-                this.element.appendChild(Dropzone.createElement("<div class=\"dz-default dz-message\"><span>" + this.options.dictDefaultMessage + "</span></div>"));
+                this.element.appendChild(
+                    Dropzone.createElement(
+                        "<div class=\"dz-default dz-message\"><span>" 
+                        + this.options.dictDefaultMessage + "</span></div>"
+                    )
+                );
             }
             if (this.clickableElements.length) {
                 setupHiddenFileInput = (function (_this) {
@@ -615,7 +629,9 @@
             })(this));
             this.on("complete", (function (_this) {
                 return function (file) {
-                    if (_this.getAddedFiles().length === 0 && _this.getUploadingFiles().length === 0 && _this.getQueuedFiles().length === 0) {
+                    if (_this.getAddedFiles().length === 0 && _this.getUploadingFiles().length === 0 
+                            && _this.getQueuedFiles().length === 0
+                    ) {
                         return setTimeout((function () {
                             return _this.emit("queuecomplete");
                         }), 0);
@@ -682,7 +698,10 @@
                         element: clickableElement,
                         events: {
                             "click": function (evt) {
-                                if ((clickableElement !== _this.element) || (evt.target === _this.element || Dropzone.elementInside(evt.target, _this.element.querySelector(".dz-message")))) {
+                                if ((clickableElement !== _this.element) 
+                                    || (evt.target === _this.element 
+                                    || Dropzone.elementInside(evt.target, _this.element.querySelector(".dz-message")))) 
+                                {
                                     _this.hiddenFileInput.click();
                                 }
                                 return true;
@@ -750,10 +769,14 @@
             if (this.options.dictFallbackText) {
                 fieldsString += "<p>" + this.options.dictFallbackText + "</p>";
             }
-            fieldsString += "<input type=\"file\" name=\"" + (this._getParamName(0)) + "\" " + (this.options.uploadMultiple ? 'multiple="multiple"' : void 0) + " /><input type=\"submit\" value=\"Upload!\"></div>";
+            fieldsString += "<input type=\"file\" name=\"" + (this._getParamName(0)) + "\" " 
+                + (this.options.uploadMultiple ? 'multiple="multiple"' : void 0) 
+                + " /><input type=\"submit\" value=\"Upload!\"></div>"
+            ;
             fields = Dropzone.createElement(fieldsString);
             if (this.element.tagName !== "FORM") {
-                form = Dropzone.createElement("<form action=\"" + this.options.url + "\" enctype=\"multipart/form-data\" method=\"" + this.options.method + "\"></form>");
+                form = Dropzone.createElement("<form action=\"" + this.options.url 
+                    + "\" enctype=\"multipart/form-data\" method=\"" + this.options.method + "\"></form>");
                 form.appendChild(fields);
             } else {
                 this.element.setAttribute("enctype", "multipart/form-data");
@@ -977,7 +1000,12 @@
 
         Dropzone.prototype.accept = function (file, done) {
             if (file.size > this.options.maxFilesize * 1024 * 1024) {
-                return done(this.options.dictFileTooBig.replace("{{filesize}}", Math.round(file.size / 1024 / 10.24) / 100).replace("{{maxFilesize}}", this.options.maxFilesize));
+                return done(
+                    this.options.dictFileTooBig.replace(
+                        "{{filesize}}", Math.round(file.size / 1024 / 10.24) / 100).replace(
+                            "{{maxFilesize}}", this.options.maxFilesize
+                        )
+                    );
             } else if (!Dropzone.isValidFile(file, this.options.acceptedFiles)) {
                 return done(this.options.dictInvalidFileType);
             } else if ((this.options.maxFiles != null) && this.getAcceptedFiles().length >= this.options.maxFiles) {
@@ -1043,7 +1071,9 @@
         Dropzone.prototype._processingThumbnail = false;
 
         Dropzone.prototype._enqueueThumbnail = function (file) {
-            if (this.options.createImageThumbnails && file.type.match(/image.*/) && file.size <= this.options.maxThumbnailFilesize * 1024 * 1024) {
+            if (this.options.createImageThumbnails && file.type.match(/image.*/) 
+                    && file.size <= this.options.maxThumbnailFilesize * 1024 * 1024) 
+            {
                 this._thumbnailQueue.push(file);
                 return setTimeout(((function (_this) {
                     return function () {
@@ -1456,7 +1486,11 @@
             element = document.querySelector(element);
         }
         if ((element != null ? element.dropzone : void 0) == null) {
-            throw new Error("No Dropzone found for given element. This is probably because you're trying to access it before Dropzone had the time to initialize. Use the `init` option to setup any additional observers on your Dropzone.");
+            throw new Error(
+                "No Dropzone found for given element. This is probably because you're trying to access it before "
+                + "Dropzone had the time to initialize. Use the `init` option to setup any additional observers on "
+                + "your Dropzone."
+            );
         }
         return element.dropzone;
     };
@@ -1595,7 +1629,10 @@
             elements = [els];
         }
         if (!((elements != null) && elements.length)) {
-            throw new Error("Invalid `" + name + "` option provided. Please provide a CSS selector, a plain HTML element or a list of those.");
+            throw new Error(
+                "Invalid `" + name + "` option provided. Please provide a CSS selector, a plain HTML element or a "
+                + "list of those."
+            );
         }
         return elements;
     };
