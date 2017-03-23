@@ -117,9 +117,9 @@
 
         /*
          This is a list of all available events you can register on a dropzone object.
-
+         
          You can register an event handler like this:
-
+         
          dropzone.on("dragEnter", function() { });
          */
 
@@ -231,6 +231,8 @@
                 info.srcY = (file.height - info.srcHeight) / 2;
                 return info;
             },
+
+            
             /*
              Those functions register themselves to the events on init and handle all
              the user interface specific stuff. Overwriting them won't break the upload
