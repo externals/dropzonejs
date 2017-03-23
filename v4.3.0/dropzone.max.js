@@ -27,21 +27,21 @@
 
 (function () {
     var Dropzone, Emitter, camelize, contentLoaded, detectVerticalSquash, drawImageIOSFix, noop, without,
-            __slice = [].slice,
-            __hasProp = {}.hasOwnProperty,
-            __extends = function (child, parent) {
-                for (var key in parent) {
-                    if (__hasProp.call(parent, key))
-                        child[key] = parent[key];
-                }
-                function ctor() {
-                    this.constructor = child;
-                }
-                ctor.prototype = parent.prototype;
-                child.prototype = new ctor();
-                child.__super__ = parent.prototype;
-                return child;
-            };
+        __slice = [].slice,
+        __hasProp = {}.hasOwnProperty,
+        __extends = function (child, parent) {
+            for (var key in parent) {
+                if (__hasProp.call(parent, key))
+                    child[key] = parent[key];
+            }
+            function ctor() {
+                this.constructor = child;
+            }
+            ctor.prototype = parent.prototype;
+            child.prototype = new ctor();
+            child.__super__ = parent.prototype;
+            return child;
+        };
 
     noop = function () {};
 
@@ -238,6 +238,7 @@
                 return info;
             },
 
+            
             /*
              Those functions register themselves to the events on init and handle all
              the user interface specific stuff. Overwriting them won't break the upload
@@ -1705,7 +1706,6 @@
 
 
     /*
-     
      Bugfix for iOS 6 and 7
      Source: http://stackoverflow.com/questions/11929099/html5-canvas-drawimage-ratio-bug-ios
      based on the work of https://github.com/stomita/ios-imagefile-megapixel
