@@ -47,7 +47,6 @@ updated informations
 
 example:
 # packages branch
-./v1.8.3/_some_files_of_version_1.8.3
-./v2.0.0-Beta/_some_files_of_version_v2.0.0-Beta
-./README.txt <- this readme
-
+    ./v1.8.3/_some_files_of_version_1.8.3
+    ./v2.0.0-Beta/_some_files_of_version_v2.0.0-Beta
+    ./README.txt <- this readme
