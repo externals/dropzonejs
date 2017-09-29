@@ -1,4 +1,5 @@
-# dropzone packages (from http://dropzonejs.com)
+# dropzone packages
+(from http://dropzonejs.com)
 
 this is a repo to hold different versions of dropzone you may need
 and also to make them available for the application as default
