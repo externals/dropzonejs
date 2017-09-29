@@ -1,4 +1,5 @@
-# dropzone from dropzonejs.com
+# dropzone packages
+(from http://dropzonejs.com)
 
 this is a repo to hold different versions of dropzone you may need
 and also to make them available for the application as default
@@ -47,7 +48,6 @@ updated informations
 
 example:
 # packages branch
-./v1.8.3/_some_files_of_version_1.8.3
-./v2.0.0-Beta/_some_files_of_version_v2.0.0-Beta
-./README.txt <- this readme
-
+    ./v1.8.3/_some_files_of_version_1.8.3
+    ./v2.0.0-Beta/_some_files_of_version_v2.0.0-Beta
+    ./README.txt <- this readme
