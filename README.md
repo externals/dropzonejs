@@ -46,8 +46,13 @@ NEVER to the master!
 at any time you should merge this readme to your branch to also get
 updated informations
 
-example:
-# packages branch
+# Example:
+## Packages branch
     ./v1.8.3/_some_files_of_version_1.8.3
     ./v2.0.0-Beta/_some_files_of_version_v2.0.0-Beta
     ./README.txt <- this readme
+
+# Changelog
+    Adds version 4.3.0
+    Adds version 5.1.1
+
