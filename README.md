@@ -1,4 +1,4 @@
-# dropzone from dropzonejs.com
+# dropzone from http://dropzonejs.com
 
 this is a repo to hold different versions of dropzone you may need
 and also to make them available for the application as default
